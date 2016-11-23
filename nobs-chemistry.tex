@@ -1,0 +1,151 @@
+\documentclass[letterpaper, 12pt]{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{soul}
+\usepackage{cancel}
+\usepackage{hyperref}
+\usepackage{physics}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\begin{document}
+\title{NoBS Calculus}
+\author{Jeffrey Wang, et. al}
+\date{November 22, 2016-- \\version 2016.11.22.23:40}
+\maketitle
+
+
+\setcounter{secnumdepth}{1}
+\setcounter{section}{0}
+
+\pagenumbering{roman}
+
+\tableofcontents
+\clearpage
+
+\section*{Author's Notes}
+	\subsection{NoBS}
+	NoBS strives for succinct guides that use simple, smaller, relatable concepts to develop a full understanding of overarching concepts.
+	\subsection{Dedication}
+	Jeffrey Wang: "To all those that helped me in life: this is for you."
+	\subsection{Sources}
+	This guide borrows certain material from the following sources, which are indicated below and throughout the paper will be referenced by parentheses and their names:
+	\begin{itemize}
+		\item (Schwartz) Martin Schwartz, University of North Texas
+	\end{itemize}
+\clearpage
+
+\pagenumbering{arabic}
+	
+\clearpage
+
+\part{Atoms, molecules, and ions}
+Review your first semester of eighth grade science class.
+
+\clearpage
+
+\part{Stoichiometry}
+Woo mix stuff together in proportions to form new things in proportions
+
+Basically chemical equations
+
+\clearpage
+
+\part{Chemical reactions}
+There are three kinds: ionic, acid-base, and redox.
+
+\clearpage
+
+\part{Gases}
+
+$$PV = nRT$$
+
+\clearpage
+
+\part{Introductory thermochemistry}
+
+Hess's Law? More like Hiss's Law.
+
+\clearpage
+	
+\part{Quantum theory and atomic structure}
+
+\section{Waves}
+	\begin{itemize}
+		\item A wave is an oscillation that results in a movement of energy. Light has characteristics of both waves and particles.
+		\item Two characteristics of waves
+		\begin{itemize}
+			\item \textbf{wavelength} ($\lambda$, length) - distance between wave peaks
+			\item \textbf{frequency} ($\nu$, per time) - number of peaks that pass a point in one second - HEY BTW "$\nu$" IS NOT "v" IT'S CALLED NU kthxbai jk get back to studying
+		\end{itemize}
+		\item Frequency related inversely to wavelength: $$\nu \propto \frac{1}{\lambda}$$
+		\item Product of wavelength, frequency is \textbf{speed of light} (c, length per time)
+		\begin{itemize}
+			\item Relationship: $\lambda \nu = c = 2.998 \times 10^8 m/s = 3.00 \times 10^8 m/s$
+			\item Remember inverse relationships were $xy = k$? The "k" in this case is $c$, or the speed of light.
+			\item For any given wavelength, divide c by the wavelength to get the frequency.
+			\item Also, for any frequency, divide c by the frequency to get wavelength.
+			\item This c is seen in the famous equation $E = mc^2$.
+		\end{itemize}
+	\end{itemize}
+\section{Quantum theory}
+	\subsection{Energy}
+	\begin{itemize}
+		\item Planck discovered energy comes in discrete "packets" called quanta. (Ergo, quantum theory.) So you can't break it apart. Just like how atoms are the smallest subdivision of matter, quanta are the smallest subdivision of energy.
+		\item This is how we determine how much energy something truly has.
+		\item Planck's constant = number of joules of energy a quantum (packet of energy) has = h = $6.63 \times 10^{-34} J \cdot s$
+		\item When electrons move down energy levels, they lose energy. This energy goes into photons, which are emitted from atoms. Photons have wave-like properties. Therefore, we can use that wave stuff to figure out the energy given by photons.
+		\item Energy of each photon proportional to light frequency: $E_{photon} \propto \nu$
+		\item $E_{photon} = h \nu = \frac{hc}{\lambda}$. (You can substitute $\nu$ for $\frac{c}{\lambda}$ because $\nu = \frac{c}{\lambda}$, per the waves section we just went over.)
+		\item Multiply energy of a photon by Avogadro's number and hey look what you get, a mole of energy
+	\end{itemize}
+	\subsection{Quantum numbers}
+	\begin{itemize}
+		\item Use quantum numbers to determine what electron is in what orbital
+		\item Four quantum numbers
+		\item \textbf{$n$} - \textbf{principal quantum number}
+		\begin{itemize}
+			\item $n = 1, 2, 3$
+			\item Determines energy level and size of orbital (Lower energy level vs higher energy level. Higher energy levels means larger orbitals)
+		\end{itemize}
+		\item \textbf{$l$} - \textbf{azimuthal quantum number}
+		\begin{itemize}
+			\item $l = 0, 1, 2, ..., n-1$
+			\item Determines number and shape of orbitals
+			\item Better known as spdf
+		\end{itemize}
+		\item \textbf{$m_{l}$} - \textbf{magnetic quantum number}
+		\begin{itemize}
+			\item $m_{l} = -l, ..., -1, 0, 1, ..., l$
+			\item Determines orientation of orbitals (Basically, only two electrons per orbital, so you have to make different "orientations" of the same orbital for each two electrons)
+		\end{itemize}
+		\item \textbf{$m_{s}$} - \textbf{spin quantum number}
+		\begin{itemize}
+			\item $m_{s} = -\frac{1}{2}, \frac{1}{2}$
+			\item Determines "spin" of electron (because you get two electrons to an orbital, but they have to be going different ways, so this is how it's identified as going one way or another)
+		\end{itemize}
+		\item \textbf{Pauli Exclusion Principle} - no two electrons can share the same set of quantum numbers. (For example, this means they can have the same principal, azimuthal, and magnetic quantum numbers, but the couldn't have the same spin quantum number!)
+	\end{itemize}
+\clearpage
+
+\setcounter{part}{9999}
+\setcounter{secnumdepth}{1}
+\setcounter{section}{0}
+\part{Practice exercises}
+
+\newtheorem{problem}{Problem}[section]
+
+\section{Blah blah}
+
+\begin{problem}
+Amil adds 1.75M of $HC_{2}H_{3}O_{2}$ into his daily juice blend. Assuming he drinks this juice blend thrice a day and his stomach pH before drinking the juice is 2.3, what is the pH of his stomach after all three juices were swallowed? (Amil drinks 100mL of acetic acid per cup, and his stomach can hold 1L of content. He has 50mL of stomach acid. Assume he fills up his stomach completely.)
+\end{problem}
+
+\end{document}
