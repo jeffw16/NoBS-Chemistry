@@ -80,12 +80,32 @@ $$PV = nRT$$
 
 \part{Introductory thermochemistry}
 
-Hess's Law? More like Hiss's Law.
-
 \section{Hess's Law}
-\ce{CO3 -> CO + O2}
+\st{Hess's Law? More like Hiss's Law.}
 
-No matter how steps there are in a series of chemical reactions, the total enthalpy change is the sum of all the changes.
+Enthalpy is a state function. This means $\Delta H$ is independent of path.
+
+Take $3 + 2$. The answer is $5$, right? Well, if I started out with 3, added 7, subtracted 6, and added 1 ($3 + 7 - 6 + 1$), the answer is also $5$. While the middle paths are not the same, the beginning and the end result are the same. This is what a state function is.
+
+Hess's Law takes advantage of the fact that enthalpy is a state function to calculate the enthalpies of reactions that we don't know. No matter how steps there are in a series of chemical reactions, the total enthalpy change is the sum of all the changes.
+
+There are a few basic ground rules that come from enthalpy being a state function:
+\begin{enumerate}
+	\item If reactants and products are reversed in a chemical equation, flip the sign of $\Delta H$.
+	\begin{itemize}
+		\item \ce{CO2(g) + 2H2O(l) -> CH4(g) + 2O2(g)} $\Delta H_{1} = +890 kJ$
+		\item \ce{CH4(g) + 2O2(g) -> CO2(g) + 2H2O(l)} $\Delta H_{2} = -890 kJ$
+	\end{itemize}
+	\item If the amounts of reactants and products are changed by a certain ratio, then $\Delta H$ is changed in the same ratio.
+	\begin{itemize}
+		\item \ce{CO2(g) + 2H2O(l) -> CH4(g) + 2O2(g)} $\Delta H_{1} = +890 kJ$
+		\item \ce{2CO2(g) + 4H2O(l) -> 2CH4(g) + 4O2(g)} $\Delta H_{2} = +1780 kJ$
+	\end{itemize}
+\end{enumerate}
+
+We can combine these two rules. If the $\Delta H$ of \ce{H2(g) + Cl2(g) -> 2HCl(g)} is $-185 kJ$, then what is the $\Delta H$ of \ce{4HCl(g) -> 2H2(g) + 2Cl2(g)}?
+
+We can identify two differences between these two reactions. First, it looks like the reaction was flipped. Second, it looks like the coefficients were multiplied by two. To account for these differences, we will (1) flip the sign of $\Delta H$ and (2) multiply $\Delta H$ by 2, which is the ratio that the coefficients were multiplied by. So the final $\Delta H$ is $+370 kJ$.
 
 \clearpage
 	
@@ -126,7 +146,7 @@ No matter how steps there are in a series of chemical reactions, the total entha
 		\item Four quantum numbers
 		\item \textbf{$n$} - \textbf{principal quantum number}
 		\begin{itemize}
-			\item $n = 1, 2, 3$
+			\item $n = 1, 2, 3, ...$
 			\item Determines energy level and size of orbital (Lower energy level vs higher energy level. Higher energy levels means larger orbitals)
 		\end{itemize}
 		\item \textbf{$l$} - \textbf{azimuthal quantum number}
@@ -149,17 +169,21 @@ No matter how steps there are in a series of chemical reactions, the total entha
 	\end{itemize}
 \clearpage
 
-\setcounter{part}{9999}
+\setcounter{part}{999}
 \setcounter{secnumdepth}{1}
 \setcounter{section}{0}
 \part{Practice exercises}
 
 \newtheorem{problem}{Problem}[section]
 
-\section{Blah blah}
+\section{Acid-base equilibria}
 
 \begin{problem}
-Amil adds 1.75M of $HC_{2}H_{3}O_{2}$ into his daily juice blend. Assuming he drinks this juice blend thrice a day and his stomach pH before drinking the juice is 2.3, what is the pH of his stomach after all three juices were swallowed? (Amil drinks 100mL of acetic acid per cup, and his stomach can hold 1L of content. He has 50mL of stomach acid. Assume he fills up his stomach completely.)
+Amil adds 100mL of 1.75M \ce{HC2H3O2} into his daily juice blend. Assuming he drinks this juice blend thrice a day and his stomach pH before drinking the juice is 2.3, what is the pH of his stomach after all three juices were swallowed? (Amil's stomach can hold 1L of liquid. He has 50mL of stomach acid. Assume he fills up his stomach completely and nothing flows into his duodenum between drinking each juice.)
+\end{problem}
+
+\begin{problem}
+DK adds 3.50M of \ce{NH4Cl} into his daily juice blend. Assuming he drinks this juice blend once a day and his stomach pH before drinking the juice is 2.1, what is the pH of his stomach after he swallows the juice? (DK drinks 100mL of ammonium chloride per cup, and his stomach can hold 1L of content. He has 50mL of stomach acid. Assume he fills up his stomach completely. Remember stomach acid is \ce{HCl}.)
 \end{problem}
 
 \end{document}
