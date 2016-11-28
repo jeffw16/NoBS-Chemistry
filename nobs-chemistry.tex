@@ -7,7 +7,9 @@
 \usepackage{cancel}
 \usepackage{hyperref}
 \usepackage{physics}
+\usepackage{chemfig}
 \usepackage[version=4]{mhchem} 
+\usepackage{gensymb}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -16,12 +18,14 @@
     urlcolor=black
 }
 
-\usepackage{DejaVuSans}
+%\usepackage{DejaVuSans}
 %% Another possibility is
 %% \usepackage{dejavu}
 %% which loads the DejaVu Serif and DejaVu Sans Mono fonts as well
-\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
-\usepackage[T1]{fontenc}
+%\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+%\usepackage[T1]{fontenc}
+
+\renewcommand*\rmdefault{ppl}
 
 \begin{document}
 \title{NoBS Chemistry}
@@ -107,6 +111,54 @@ We can combine these two rules. If the $\Delta H$ of \ce{H2(g) + Cl2(g) -> 2HCl(
 
 We can identify two differences between these two reactions. First, it looks like the reaction was flipped. Second, it looks like the coefficients were multiplied by two. To account for these differences, we will (1) flip the sign of $\Delta H$ and (2) multiply $\Delta H$ by 2, which is the ratio that the coefficients were multiplied by. So the final $\Delta H$ is $+370 kJ$.
 
+Let's try a reaction such as \ce{C(s) + 1/2O2(g) -> CO(g)}. We do not know the $\Delta H$ of this reaction because it cannot be measured. So, we will use Hess's Law to deduce the $\Delta H$. (The following example was borrowed from Schwartz)
+
+Given two reactions, we will "rearrange" and change the ratios to make it "fit" this reaction.
+
+\begin{enumerate}
+	\item \ce{CO2(g) -> C(s) + O2(g)} $\Delta H_{1} = +393.5 kJ$
+	\item \ce{2CO(g) + O2(g) -> 2CO2(g)} $\Delta H_{2} = -566.0 kJ$
+\end{enumerate}
+
+Let's begin to find where the reactants are located in these two equations. Well, it looks like \ce{C(s)} is found in the first equation on the products (right) side. In order to bring it to the reactants side, we will reverse the equation and therefore flip the sign of $\Delta H$.\\
+
+(1') \ce{C(s) + O2(g) -> CO2(g)} $\Delta H_{1'} = -1 \cdot +393.5 kJ = -393.5 kJ$.\\
+
+Because \ce{O2(g)} is found in both equations, let's not overcomplicate matters. Let's deal with \ce{CO(g)}. We need it in the product side, but it seems to only be found in the reactants side. That means we reverse the equation and flip the sign of $\Delta H$. Furthermore, it seems this equation has double the amount of moles than needed, so we halve the sign of $\Delta H$ too.\\
+
+(2') \ce{CO2(g) -> CO(g) + 1/2O2(g)} $\Delta H_{2'} = -1 \cdot \frac{1}{2} \cdot -566.0kJ = +283.0 kJ$.\\
+
+Adding equations (1') and (2') together, we get the original equation:\\
+
+\ce{C(s) + O2(g) + CO2(g) -> CO2(g) + CO(g) + 1/2O2(g)} $\Delta H = -393.5 kJ + 283.0 kJ$.\\
+
+Just like in algebra, we're going to cancel out reagents that are on both sides of the equation.\\
+
+\ce{C(s) + 1/2O2(g) -> CO(g)} $\Delta H = -110.5 kJ$.\\
+
+And that is the calculated $\Delta H$ for this reaction.
+
+\section{Enthalpy of formation}
+Another way to figure out the $\Delta H$ of something (in this case, compounds) is to use enthalpy of formation, also known as heat of formation. Summing the enthalpies of each individual element in a compound gives us that compound's enthalpy. We use the enthalpies of elements in their standard states, which is $25^{\circ}{\rm C}$ at 1 atm. You use the element's most preferable composition at standard state.
+
+Instead of \ce{H}, use \ce{H2}. (All elements naturally occurring as diatomic should be used as diatomic for purposes of enthalpy of formation.)
+%$\degree ^{C}$%
+
+If you want the enthalpy of \ce{H2O}, simply get the enthalpies for a hydrogen molecule (\ce{H2}) and half of an oxygen molecule (\ce{1/2O2}). Note that \ce{2H + O} would be wrong because H and O are diatomic gaseous molecules at standard state.
+
+The enthalpies of formation for each element will be given to you. No need to memorize them.
+
+\section{Bond energy/bond enthalpies}
+Each bond between atoms in a molecule has energy. When you break these bonds, you need to invest energy into it. When you form bonds, energy comes out.
+
+Therefore, given a chemical reaction and how much energy each kind of bond has, you can calculate bond energies.
+
+A single bond does not have the same amount of energy as a double bond. \ce{O-O}, \ce{O=O}, and \ce{O#O} have very different bond enthalpies. You do not have to memorize bond enthalpies for each specific kind of bond, but you need to know how to do math with them.
+
+$$\text{bond enthalpy} = \Sigma \text{broken} - \Sigma \text{made}$$
+
+You can remember "broken minus made" by using the pseudo-mnemonic "bowel movement." (I didn't make this up, ok? It works though)
+
 \clearpage
 	
 \part{Quantum theory and atomic structure}
@@ -123,7 +175,7 @@ We can identify two differences between these two reactions. First, it looks lik
 		\item Product of wavelength, frequency is \textbf{speed of light} (c, length per time)
 		\begin{itemize}
 			\item Relationship: $\lambda \nu = c = 2.998 \times 10^8 m/s = 3.00 \times 10^8 m/s$
-			\item Remember inverse relationships were $xy = k$? The "k" in this case is $c$, or the speed of light.
+			\item Remember from Algebra 1 that inverse relationships are defined by the relation $xy = k$? The "k" in this case is $c$, or the speed of light.
 			\item For any given wavelength, divide c by the wavelength to get the frequency.
 			\item Also, for any frequency, divide c by the frequency to get wavelength.
 			\item This c is seen in the famous equation $E = mc^2$.
@@ -166,6 +218,176 @@ We can identify two differences between these two reactions. First, it looks lik
 			\item Determines "spin" of electron (because you get two electrons to an orbital, but they have to be going different ways, so this is how it's identified as going one way or another)
 		\end{itemize}
 		\item \textbf{Pauli Exclusion Principle} - no two electrons can share the same set of quantum numbers. (For example, this means they can have the same principal, azimuthal, and magnetic quantum numbers, but the couldn't have the same spin quantum number!)
+	\end{itemize}
+\clearpage
+
+\part{Electron configuration and periodicity}
+\section{Electron configuration and orbital energy diagrams}
+	\subsection{Electron configurations}
+	Electron configurations go like this:
+	
+	1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, 5p, 6s, 4f, 5d, 6p, etc.
+	
+	\begin{itemize}
+		\item s: 1, 2, 3, 4, 5, 6...
+		\item p: 2, 3, 4, 5, 6...
+		\item d: 3, 4, 5, 6...
+		\item f: 4, 5, 6...
+	\end{itemize}
+	
+	s: first two groups (columns) of the periodic table and He, groups 1 and 2.
+	p: rightmost six groups of the periodic table, excluding He, groups 13 through 18.
+	d: middle "transition metals" area, group 3 through 12.
+	f: Lanthanides and Actinides.
+	
+	Count beginning with H (hydrogen) and continue right and down, following the natural ordering of atomic numbers until you reach your atom.
+	
+	Condensed electron configuration is when you start from the nearest noble gas and simply do the electron configuration of the valence electrons. For example, the electron configuration of V is $1s^2 2s^2 2p^6 3s^2 3p^6 4s^2 3d^3$, but the condensed electron configuration is [\ce{Ar}] $4s^2 3d^3$.
+	
+	\subsection{Orbital energy diagrams}
+	Keep in mind the Pauli Exclusion Principle.
+	
+	Since s has only one orbital (it only has one magnetic quantum number, 0), the two electrons fill up that orbital as it would be expected to. But for p, since there are three magnetic quantum numbers, -1; 0; and 1, addition of electrons should be spread out amongst the orbitals first. Since these three orbitals are all on the same energy level (let's pretend we're on 2p), then these three orbitals are called \textbf{degenerate orbitals}. Electrons will occupy degenerate orbitals that maximizes the number of unpaired electrons. This is called \textbf{Hund's Rule}. Think of a hostel's beds as degenerate orbitals of an energy level. Unless everybody is friends with benefits with each other (and electrons are not, because of Coulombic repulsion), the hostel guests will try to spread out as much as possible. If there are three beds and three people, all three will sleep separately. If a fourth comes in, there's no choice but for one of the beds to hold two people, and only then can an orbital be paired.
+	
+	If all orbitals are paired, this is called \textbf{diamagnetic} and the atom/ion won't be magnetically attractive. But if some orbitals are unpaired, this is called \textbf{paramagnetic} and the atom/ion will be magnetically attractive. The more orbitals unpaired, the more paramagnetic an atom/ion will be.
+	
+	For ions, keep in mind that the number of electrons is NOT the same as the ion's atomic number. Be sure to incorporate that into your electron configurations. There is something special to keep in mind here: \textul{transition metal cations' nth s electrons will come off \textit{before} the (n-1)th d electrons}.
+	
+	\begin{itemize}
+		\item \ce{Fe}: [\ce{Ar}] $4s^2 3d^6$.
+		\item \ce{Fe^2+}: [\ce{Ar}] $3d^6$.
+		\item \ce{Fe^3+}: [\ce{Ar}] $3d^5$.
+	\end{itemize}
+
+\section{Periodicity}
+	\subsection{Atomic radii}
+	Note that this is not ionic radii but atomic radii. There are two kinds of atomic radii:
+	\begin{itemize}
+		\item \textbf{van der Waals} - half of the atom's diameter
+		\item \textbf{bonding radius} - half of the diameter, where the diameter is defined as being the distance between the two nuclei of the covalent bond.
+	\end{itemize}
+	
+	Trend: As you go right, atomic radii get smaller. As you go down, atomic radii get bigger.
+	
+	This trend is only for the main group and not for transition metals or the lanthanides/actinides. Additionally, this trend is for both van der Waals and bonding radii.
+	
+	\subsection{Effective nuclear charge (Z-effect)}
+	The effective nuclear charge (or Z-effect) is the number of protons minus the number of core electrons. The higher the effective nuclear charge is, the more nuclear charge the valence electrons see, and the more closely drawn they are to the center of the atom. This causes the atom to become smaller.
+	
+	$$Z_{\text{effect}} = Z - S$$
+	
+	$$Z_{\text{effect}} \propto \frac{1}{\text{atomic radii's size}}$$
+	
+	\subsection{Ionic radii}
+	Radii of cations are always smaller than its neutral atom's radii. This is because the effective nuclear charge/Z-effect is bigger and causes smaller radii.
+	
+	Radii of anions are always larger than its neutral atom's radii. This is because the effective nuclear charge/Z-effect is smaller and causes bigger radii.
+	
+	Trend: As you go right, cations' radii start out small, then get smaller. At the "stairstep", anions become huge and get smaller while remaining bigger than the cations.
+	
+	\subsection{Ionization energy}
+	This is the amount of energy needed to remove an electron from an atom. They will increase, but there is a massive jump at the $\text{(\# of VE + 1)}^{\text{th}}$ ionization energy.
+	
+	Factors affecting ionization energy of atoms:
+	\begin{enumerate}
+		\item effective nuclear charge - higher $Z_{\text{eff}}$ means more attraction to nucleus, which means it's harder to pry it off and increases the ionization energy.
+		\item distance from the nucleus - the further away it is from the nucleus, the easier it is to pry it off and decreases the ionization energy.
+	\end{enumerate}
+	
+	Ionization energy is the exact opposite trend as atomic radii. However, ionization energy is directly related to the electronegativity.
+	
+	$$\text{IE} \propto \frac{1}{\text{atomic radii}}$$
+	
+	$$\text{IE} \propto \text{electronegativity}$$
+	
+	\subsection{Electron affinity}
+	Opposite of ionization energy. This is how much energy is given off/used to bind an electron to an atom. Usually, energy is given off (negative), but not always.
+
+\clearpage
+
+\part{Molecular shapes and covalent bonding}
+
+\section{Ionic bonding}
+Where one or more atom(s) donate(s) electrons to (an)other atom(s) so that both/they all have perfect octets.
+
+\section{Covalent bonding}
+
+	\subsection{Lewis structures}
+	A Lewis structure is used for demonstrating valence electrons. For example:
+
+	\Lewis{2:4:6:,O}
+
+	Covalent bonds share electrons so that each atom reaches eight valence electrons. The "shared" electrons count as valence electrons for both atoms. This sharing creates a covalent bond.
+
+	We will first count the number of valence electrons of each individual constituent atom of the compound. The sum is the number of valence electrons to be used across the Lewis diagram, represented by dots. Then, valence electrons will be shared, by creating a covalent bond, so that the constituent atoms of the compound that do not have an octet will have an octet.
+
+	\subsection{Formal charge}
+	In cases where multiple valid Lewis structures arise, the most equally-distributed version will prevail. We determine this through \textbf{formal charge}.
+	
+	Formal charge is defined as:
+	
+	$$\text{FC} = \text{\# of valence electrons} - \text{\# of lone electrons (NOT PAIRS)} - \text{\# of bonds}$$
+	
+	This is applied to every single constituent atom of a compound.
+	
+	Formal charges should strive to be zero. This creates the most equally-distributed version of the compound and is therefore the correct version of the Lewis structure. On occasion, constituents may have a nonzero formal charge, but if there is no way to make every single constituent's formal charge zero, then such a Lewis structure is considered valid.\\
+	
+	\ce{\Lewis{2:4:6:,O} - C \bond{3} \Lewis{0:,O}}
+	
+	FC = ( $6 - 6 - 1$ ), ( $4 - 0 - 4$ ), ( $6 - 2 - 3$ )
+	
+	FC = -1, 0, 1
+	
+	This Lewis structure for \ce{CO2} is not valid because the formal charges are not all zero when it could be.\\
+	
+	\ce{\Lewis{2:6:,O} = C = \Lewis{2:6:,O}}
+	
+	FC = ( $6 - 4 - 2$ ), ( $4 - 0 - 4$ ), ( $6 - 4 - 2$ )
+	
+	FC = 0, 0, 0\\
+	
+	This above Lewis structure is now valid, because the FCs are all zero.
+	
+	\subsection{Bond order}
+	Single bond means a bond order of one. Double bond, two. Triple bond, three. Simple. Until it isn't. See "Resonance" for more information.
+	
+	\subsection{Resonance}
+	In \ce{SO3^2-} (sulfate), the extra electrons create resonance structures. Because one of the S-O bonds is a double bond and the other two are single bonds, any of the three S-O bonds can be the double bond, as long as the other two bonds are single. Because they are all S-O bonds and there are three distinct possibilities of \ce{SO3^2-}, we must draw three different structures.
+	
+	However, in reality, the \ce{SO3^2-} bond lengths are the same, as proven through scientific methods. It turns out that instead of there being one double bond and two single bonds, there are three 1.33 bonds. Therefore, the bond order of \ce{SO3^2-}'s S-O bond is 1.33.
+	
+	Remember to surround sulfate's Lewis structure with brackets and a superscript "2-" for its ionic charge.
+	
+	\subsection{Exceptions to the octet rule}
+	\textbf{Free radicals}: these occur when there's an odd number of valence electrons. Why don't you usually see it? Because 1. giving you an odd number of electrons screws up your Lewis dot skills and 2. they're rare in nature. But when they exist, they are very unstable and highly reactive. It will force the atom to have seven valence electrons, even with bonds, instead of an octet.
+	
+	\textbf{Hydrogen and helium}: Technically can't have an octet because they only have a possibility of two valence electrons.
+	
+	\textbf{Beryllium and boron}: Beryllium only has four valence electrons, boron has six valence electrons. A mnemonic to remember this: Boron the Moron.
+	
+	\textbf{Expanded valence}: The d orbital can also act as valence, and this causes more than eight valence electrons. This is seen in 3rd period or below. (It is impossible for second or first period elements to have expanded valences due to their lack of d orbitals.) As examples: \ce{BrF5}, \ce{TeBr4}, \ce{ICl4^-}, \ce{PCl5}, \ce{SF6}.
+	
+	\textbf{Transition metal complexes: eighteen electron rule and ligands}: Transition metals have 18 valence electrons. Ligands, such as \ce{CO}, \ce{Cl}, \ce{NH3}, and \ce{CN} will donate a certain amount of electrons. To figure out how many ligands attach to a transition metal (in the case of \ce{M(L)n}), use this formula:
+	
+	$$dn + v = 18$$
+	
+	Where:
+	\begin{itemize}
+		\item d - number of valence electrons each ligand contributes (d for donated)
+		\item n - number of ligands (n for number) - you are solving for this
+		\item v - number of valence electrons the metal already has (v for valence)
+	\end{itemize}
+	
+	For example, \ce{Cr(CO)n}. $d = 2, v = 6$. $2n + 6 = 18$. $2n = 12$. $n = 6$.
+	
+	\subsection{Lewis structures of organic molecules}
+	Guidelines:
+	\begin{itemize}
+		\item Hydrogen atoms have 1 bond
+		\item Carbon atoms have 4 bonds
+		\item Nitrogen atoms have 3 bonds and 1 \ce{e^-} lone pair
+		\item Oxygen atoms have 2 bonds and 2 \ce{e^-} lone pairs
+		\item Halogen atoms have 1 bond and 3 \ce{e^-} lone pairs
 	\end{itemize}
 \clearpage
 
