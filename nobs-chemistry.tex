@@ -30,7 +30,7 @@
 \begin{document}
 \title{NoBS Chemistry}
 \author{Jeffrey Wang, et. al}
-\date{November 22, 2016-- November 27, 2016\\version 2016.11.27.21:30}
+\date{November 22, 2016--June 14, 2017\\version 2017.06.14.00:00}
 \maketitle
 
 
@@ -51,7 +51,8 @@
 	This guide borrows certain material from the following sources, which are indicated below and throughout the paper will be referenced by parentheses and their names:
 	\begin{itemize}
 		\item (Schwartz) Martin Schwartz, University of North Texas
-		\item (Silberberg) Martin S. Silberberg,  \textbf{Principles of General Chemistry, 3rd. Ed.}
+		\item (Silberberg) Martin S. Silberberg,  \textbf{Principles of General Chemistry, 3rd Ed.}
+		\item (Zumdahl) Steven S. and Susan A. Zumdahl, \textbf{Chemistry, 9th Ed.}
 	\end{itemize}
 \clearpage
 
@@ -68,11 +69,16 @@ Review your first semester of eighth grade science class. Specifically, review t
 	\item Elements vs. compounds
 	\item Atoms vs. molecules
 	\item Mixtures vs. pure substances
-	\item Homogeneous vs. heterogeneous mixtures
 	\item Physical and chemical properties
 \end{itemize}
 
-This will not be taught to you on NoBS Chemistry, because it would be BS.
+These will not be taught to you on NoBS Chemistry, because it would be BS. Google them if you need a refresher.
+
+	\subsection{Homogeneous vs. heterogeneous mixtures}
+	\begin{itemize}
+		\item \textbf{Homogeneous mixture}: visibly uniform mixture.
+		\item \textbf{Heterogenous mixture}: visibly distinguishable parts. (Zumdahl)
+	\end{itemize}
 
 	\subsection{Intensive vs. extensive properties}
 	\begin{itemize}
@@ -83,7 +89,9 @@ This will not be taught to you on NoBS Chemistry, because it would be BS.
 	Certain intensive properties can identify an unknown substance because they are ratios (like density and molar mass). The ratio of a substance's properties should be the same regardless of its extensive properties.
 	
 	\subsection{Temperature}
-	$$T_{K} = T_{C} + 273.15$$
+	$$T_{K} = T_{^{\circ}{\rm C}} + 273.15$$
+	
+	K represents Kelvin. 0K is absolute zero. 273.15K is 0$^{\circ}{\rm C}$.
 	
 	\subsection{Units of measurement}
 	Know SI units (kg, m, s (seconds), K) and metric prefixes (pico to mega).
@@ -95,6 +103,14 @@ This will not be taught to you on NoBS Chemistry, because it would be BS.
 	Multiply things by ratios and units. We use the trick in math that the top and bottom of a fraction cancel; in this case, we will "chain" multiple ratios together to convert units.
 	
 	$$3.0 \cdot 10^5 \cancel{cm} \times \frac{1 \cancel{in}}{2.54 \cancel{cm}} \times \frac{1 \cancel{ft}}{12 \cancel{in}} \times \frac{1 mi}{5280 \cancel{ft}} = 1.86 mi.$$
+	
+	We can do this because we know:
+	\begin{itemize}
+		\item $1 in = 2.54 cm$
+		\item $1 ft = 12 in$
+		\item $1 mi = 5280 ft$
+	\end{itemize}
+	The fractions' top and bottom equal each other. You're multiplying the original number by 1, except the top and bottom of each fraction are in different units.
 	
 \section{Atoms and ions}
 Atoms have a nucleus with protons and neutrons and an electron cloud that revolves around the nucleus like planets do around the sun.
@@ -131,8 +147,12 @@ When atoms combine with other atoms, they form molecules, which have totally dif
 	
 	Prefixes for coefficients of metal or nonmetal: di, tri, tetra, penta, hexa, hepta, octa, etc.
 	
-	\ce{SiO} -- silicon oxide (also silicon monoxide, but that's an antiquated method of saying it)\\
-	\ce{N2O5} -- dinitrogen pentoxide\\
+	Example:
+	
+	\begin{itemize}
+		\item \ce{SiO} -- silicon oxide (also silicon monoxide, but that's an antiquated method of saying it)
+		\item \ce{N2O5} -- dinitrogen pentoxide
+	\end{itemize}
 	
 	\subsection{Ionic compound nomenclature}
 	Cation's atomic name + anion's atomic name + ide.
@@ -233,30 +253,62 @@ When atoms combine with other atoms, they form molecules, which have totally dif
 	\end{itemize}
 
 	
+	
+
+\clearpage
+
+\part{Stoichiometry}
+Chemical reactions of molecules technically happen in whole number ratios. Since atoms are indivisible, it's not possible to combine $\frac{1}{5}^{\text{ths}}$ of a sulfur atom with 1.5 oxygen atoms. We are able to use these relations to deduce quantities of what's produced.
+
+\section{The mole}
+\st{The mole is a nocturnal animal that lives in underground burrows} Lol jk this isn't biology.
+
+In order to properly measure the amount of atoms used up or made in a chemical reaction, we must count how many atoms are transformed, per the chemical reaction's ratios. However, atoms are super small, which means there are tons of atoms in a very small space. They are indistinguishable to the human eye. Chemists do not count how many atoms there are in a certain place---that would be extremely difficult and unfeasible. Instead, we count in moles.
+
+Let's say you're super rich. Would you rather say "I have \$3,392,198,095.27 in total assets" or "I have about \$3.4 billion in total assets" off the tip of your tongue? Likely the latter. Just as billionaires cannot literally count every single asset they have 100\% accurately 100\% of the time (and usually, they don't need to), chemists don't have the time or ability to count every single atom in a place.
+
+The mole is kind of like a million or a billion. Except it's a multiplicative factor of $6.022 \times 10^{23}$. That means in $1 \text{mol}$ of atoms (mol is the abbreviation of "mole"), there are $6.022 \times 10^{23}$ atoms. Usually, moles refer to the amount of atoms or molecules, but it can be used to count other things too, like photons.
+
+Because the mole's ratio is always the same to the amount of atoms present, we use moles as the unit of atoms or molecules in chemical reactions and measurements.
+
+	\subsection{Moles and grams}
+	But why moles? Why can't we just use weight?
+	
+	Remember atomic mass was the average number of protons and neutrons added up together (and each atom has a different amount of protons and neutrons)? Different kinds of atoms have different atomic masses. That means, for example, one atom of sulfur weighs more than an atom of hydrogen. In fact, if we had the same amount of atoms of sulfur and hydrogen, sulfur would be about 32 times heavier than hydrogen (by atomic mass). That also means if we have $6.022 \times 10^{23}$ sulfur atoms and $6.022 \times 10^{23}$ hydrogen atoms, or 1 mol of S atoms and 1 mol of H atoms, 1 mol of S atoms will be 32 times heavier (by mass) than 1 mol of H atoms. Even though 1 mol of S has a different mass than 1 mol of H, 1 mol of S has the same number of atoms as 1 mol of H.
+	
+	By definition, one mole of a certain substance is equal to the atomic/molar mass of that substance. This is why 1 gram of H does not have the same amount of atoms as 1 gram of S. In fact, it would take 32 grams of S to reach about 1 mol of S, while we only need 1 gram of H to reach about 1 mol of H.
+
 	\subsection{Molar mass}
 	Adding together each constituent atom's atomic mass gives you molecular mass, also known as molar mass. Decades ago, it was known as molecular weight; you might still see that today in moribund chemistry literature and from tenured faculty.
 
 \clearpage
 
-\part{Stoichiometry}
-Woo mix stuff together in proportions to form new things in proportions
+\part{Chemical reactions and solution stoichiometry}
+This part is under construction.
 
-Basically chemical equations
+%There are three kinds of chemical reactions: ionic, acid-base, and redox.
 
-\clearpage
+%\section{Ionic reactions}
 
-\part{Chemical reactions}
-There are three kinds: ionic, acid-base, and redox.
+
+%\section{Acid-base reactions}
+%\ce{A + B -> M + H2O}
+
+%\section{Redox reactions}
+
 
 \clearpage
 
 \part{Gases}
+This part is under construction.
 
-$$PV = nRT$$
+%$$PV = nRT$$
 
 \clearpage
 
 \part{Introductory thermochemistry}
+
+Some sections in this part are under construction.
 
 \section{Hess's Law}
 \st{Hess's Law? More like Hiss's Law.}
