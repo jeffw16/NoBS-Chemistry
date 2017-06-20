@@ -6,6 +6,11 @@
 \usepackage{soul}
 \usepackage{cancel}
 \usepackage{hyperref}
+
+% physics package is screwing up \div
+
+\let\olddiv\div
+
 \usepackage{physics}
 \usepackage{chemfig}
 \usepackage[version=4]{mhchem}
@@ -17,6 +22,7 @@
     linkcolor=black,
     urlcolor=black
 }
+\usepackage{graphicx}
 
 %\usepackage{DejaVuSans}
 %% Another possibility is
@@ -30,7 +36,7 @@
 \begin{document}
 \title{NoBS Chemistry}
 \author{Jeffrey Wang, et. al}
-\date{November 22, 2016--June 14, 2017\\version 2017.06.14.00:00}
+\date{November 22, 2016--June 15, 2017\\version 2017.06.15.15:40}
 \maketitle
 
 
@@ -185,7 +191,7 @@ When atoms combine with other atoms, they form molecules, which have totally dif
 	Nomenclature example: \ce{KCl} is potassium chloride (not chlorine), \ce{Na2CO3} would be sodium carbonate, \ce{Mg3(PO4)2} is magnesium phosphate.
 
 	\subsection{Organic compound nomenclature}
-	Organic compounds contain \ce{C} and usually \ce{H} by definition.
+	Organic compounds contain \ce{C} and usually \ce{H} by definition. (Honors Chemistry only)
 
 	\begin{itemize}
 		\item \textbf{alkanes}: ONLY SINGLE BONDS (single as a pringleeee)
@@ -257,11 +263,6 @@ When atoms combine with other atoms, they form molecules, which have totally dif
 		\end{itemize}
 	\end{itemize}
 
-
-	\subsection{Molar mass}
-	Adding together each constituent atom's atomic mass gives you molecular mass, also known as molar mass. Decades ago, it was known as molecular weight; you might still see that today in moribund chemistry literature and from tenured faculty.
->>>>>>> origin/master
-
 \clearpage
 
 \part{Stoichiometry}
@@ -287,6 +288,142 @@ Because the mole's ratio is always the same to the amount of atoms present, we u
 
 	\subsection{Molar mass}
 	Adding together each constituent atom's atomic mass gives you molecular mass, also known as molar mass. Decades ago, it was known as molecular weight; you might still see that today in moribund chemistry literature and from tenured faculty.
+
+\section{Percent composition}
+Percent composition is a way to quantify how much mass a certain element is present in a compound.
+
+The percent composition is going to be a fraction, percentified. A fraction is part over whole. The "part" is the mass of that certain element only. The "whole" is the total mass of the compound.
+
+To find the total mass of the compound, we will determine the compound's molar mass (MM). Let's say we have \ce{CH3COOH} (acetic acid/ethanoic acid). First, let's find its MM. Its MM is the sum of the molar masses of each individual compound, multiplied by the moles of each compound.
+
+$$MM_{\ce{CH3COOH}} = n_{C} \cdot MM_{C} + n_{H} \cdot MM_{H} + n_{O} \cdot MM_{O}$$
+
+$n$ stands for moles. How do we know how many moles there are? We look at the chemical formula.
+
+Also, it's important to note that in this case, we know the number of moles present because they are relative to each other. Each individual \ce{CH3COOH} molecule is made up of 2 carbons, 2 hydrogens, and 4 oxygens. That means $6.022 \times 10^{23}$ \ce{CH3COOH} molecules contain 2 times $6.022 \times 10^{23}$ carbon molecules and so on. Remember that $1 mol = 6.022 \times 10^{23} atoms/molecules/electrons/photons/whatever$. So this ratio holds constant. Regardless of the actual amount of moles or grams present of carbon, hydrogen, oxygen, or acetic acid, it doesn't matter because 1. the ratio between each constituent element doesn't change as the mass increases and 2. we're trying to find a percentage, which is an intensive property.
+
+This is the beauty of stoichiometry. We can use ratios because they are guaranteed by the laws of the universe.
+
+Back to acetic acid. We need to find its molar mass. Since each mole of carbon has a molar mass of $12.01 g$, and we have $2$ carbons per molecule of acetic acid, we multiply $12.01$ by $2$. Then, we multiply the moles of hydrogen ($2$) by its molar mass of $1.008 g$, and so on. Then add these together. You get $90.04 g$ as the total molar mass of \ce{CH3COOH}.
+
+Now let's find the part. Let's say we're trying to find the mass percent of carbon. Now for the easy part: we just multiply moles of carbon ($n_{C}$) by the molar mass of carbon ($MM_{C}$) and divide that by our molar mass. Then of course multiply by 100\% and you get your mass percent.
+
+$$\frac{2 \cdot 12.01 \cancel{g}}{90.04 \cancel{g}} \cdot 100\% = 26.67\%$$
+
+As you can see, the units canceled out. And now we have the mass percent of carbon in acetic acid.
+
+Now let's do the same for hydrogen!
+
+$$\frac{2 \cdot 1.008 \cancel{g}}{90.04 \cancel{g}} \cdot 100\% = 2.24\%$$
+
+Also, if you know all the mass percents of each element except one, the last one is simply $100\%$ minus the others. It's like how you can determine the third angle of a triangle if you know two of its angles. This is useful for problems that don't tell you anything except the mass percent/percent composition of all but one constituent elements.
+
+In this case, if you're too lazy to repeat the mass percent calculation for oxygen, you can just do:
+
+$$100\% - (26.67\% + 2.24\%) = 71.09\%$$
+
+(If you were to calculate it the standard way, you would do: $\frac{4 \cdot 16.00 \cancel{g}}{90.04 \cancel{g}} \cdot 100\% = 71.08\%$. The slight difference in digits is due to significant figure truncation.)
+
+\section{Empirical and molecular formula determination}
+We just manipulated the ratios of moles of elements in a compound to get mass percent. Now let's switch it around. Given mass percents of each constituent element in a compound, you can determine the ratio of each constituent element in that compound.
+
+We basically do the reverse of what we did in mass percent. This time, since all the mass percents added up together equal 100\% and the ratio holds regardless of math, we can just make life easier and assume that we have $100 g$ of compound.
+
+To show that the process of finding empirical formula is basically the reverse of finding percent composition, let's use the mass percents that we got from our previous example with acetic acid, \ce{CH3COOH}.
+
+$$\ce{C}: 26.67\% \implies 26.67 g$$
+$$\ce{H}: 2.24\% \implies 2.24 g$$
+$$\ce{O}: 71.09\% \implies 71.09 g$$
+
+We want a ratio of carbon, hydrogen, and oxygen. Mass does not give us that ratio of atoms, but moles do. Let's use molar mass to convert from grams to moles.
+
+$$26.67 \cancel{g} \ce{C} \cdot \frac{1 mol \ce{C}}{12.01 \cancel{g} \ce{C}} = 2.22 mol \ce{C}$$
+$$2.24 \cancel{g} \ce{H} \cdot \frac{1 mol \ce{H}}{1.008 \cancel{g} \ce{H}} = 2.22 mol \ce{H}$$
+$$71.09 \cancel{g} \ce{O} \cdot \frac{1 mol \ce{O}}{12.01 \cancel{g} \ce{O}} = 4.44 mol \ce{O}$$
+
+So we get \ce{C_{2.22}H_{2.22}O_{4.44}}? Well, kinda. Since we started off with the arbitrary amount of $100 g$, we can divide all of these mole amounts by the least out of all of them, in this case $2.22$.
+
+Then we get 1 mol \ce{C}, 1 mol \ce{H}, and 2 mol \ce{O} or \ce{CHO2}. This is the \textbf{empirical formula} obtained from these mass percents. (If the division isn't perfect, round to the nearest whole number. If you get like $2.5$ after division, multiply all numbers by two to get whole numbers. If you get $1.33$, multiply by 3, etc.)
+
+Obviously, we started with \ce{CH3COOH} (or \ce{C2H2O4}) so this isn't correct.
+
+When we want to determine the \textbf{molecular formula}, we must be given the true molecule's molar mass. In this case, acetic acid's molar mass is $90.04 g$. Now, calculate the empirical formula's molar mass. That would be $45.018 g$. Divide the true molar mass by the empirical formula's molar mass. You get about 2, right? That means you need to multiply all the exponents of the empirical formula by 2 to get the true molecular formula. And indeed, if you multiplied the coefficients in \ce{CHO2} by 2, you get \ce{C2H2O4}, which is chemically the same thing as \ce{CH3COOH}.
+
+\section{Chemical reactions}
+The law of conservation of mass states that mass can neither be created nor destroyed. Same thing applies to chemical reactions. Atoms don't just suddenly disappear. Their bonds break and form new ones, so you need to make sure the same amount of atoms are present before and after a chemical reaction. That means making sure the ratios are equal! Remember, stoichiometry is chemical ratios.
+
+For the chemical reaction \ce{C3H8 + O2 -> CO2 + H2O}, the constituent elements are not equal on each side. Let's count how many of each element are on each side.
+
+\begin{itemize}
+	\item C: 3, 1
+	\item H: 8, 2
+	\item O: 2, 3
+\end{itemize}
+
+Where to start? Here's a hint. Try to balance the elements that only appear in one element on each side. In this case, carbon is a good candidate. \textul{Oxygen would be a terrible choice because it appears in both} \ce{CO2} and \ce{H2O} , \textul{so you'd be performing a juggling act trying to start off with oxygen.}
+
+Since there's three carbons on the left, let's multiply \ce{CO2}'s coefficient, 1, by 3 to make that ratio equal.
+
+\ce{C3H8 + O2 -> 3CO2 + H2O}
+
+Now carbon's balanced, but what about hydrogen? Looks like we have 8 hydrogens on the left but only 2 hydrogens on the right. $8 \divisionsymbol 2 = 4$. So multiply \ce{H2O}'s coefficient by 4.
+
+\ce{C3H8 + O2 -> 3CO2 + 4H2O}
+
+Okay, now let's balance oxygen. There's 2 on the left and 10 on the right. So $10 \divisionsymbol 2 = 5$; time to multiply \ce{O2}'s coefficient by 5. We get this as our final answer:
+
+\ce{C3H8 + 5O2 -> 3CO2 + 4H2O}
+
+	\subsection{Physical state indicators}
+	To represent the phase of a certain reactant or product, we use the following symbols for solid, liquid, aqueous, and gas respectively: \ce{(s)}, \ce{(l)}, \ce{(aq)}, \ce{(g)}. Aqueous means something is dissolved in water, or in an aqueous solution. This isn't a phase of matter, but it is important to denote that it is the physical state of the chemical.
+
+\section{Stoichiometric calculations}
+When you're making a peanut butter and jelly sandwich, you'll need 2 slices of bread, a smattering of peanut butter, and a smattering of your favorite fruit jelly. Notice that it isn't a PB\&J without conforming to this exact ratio. You can't just use 1 slice of bread and you can't skimp out on jelly, or else it wouldn't be a PB\&J.
+
+\ce{2Bread + 1PB + 1J -> 1PBJ}
+
+Chemical reactions work the same way. They \textit{have} to conform to a specific ratio. Because this ratio is guaranteed to exist (as long as the chemical reaction happens, which it will in Gen Chem), you can use the quantity of one of the \textbf{reagents} (the constituent elements/compounds in this reaction) to find the quantity of the other reagents.
+
+You'll know that if you made 6 PB\&Js, you would have used 12 slices of bread and six smatterings of PB and J.
+
+Same thing applies to chemical reactions. If you have the chemical reaction \ce{C3H8 + 5O2 -> 3CO2 + 4H2O}, you know that the ratio between \ce{C3H8} and \ce{CO2} is 1:3. Therefore, if your chemical reaction ended and you ended up with 6 moles of \ce{CO2}, that means you started with 2 moles of \ce{C3H
+}.
+
+$$6 \cancel{mol \ce{CO2}} \times \frac{1 mol \ce{C3H8}}{3 \cancel{mol \ce{CO2}}} = 2 mol \ce{C3H8}$$
+
+Note that the unit of conversion should be done in moles. Why? Because moles are how many molecules are present, and in reactions, molecules bond with other molecules in certain ratios. If we are trying to form hydrogen chloride, \ce{HCl}, 1 gram of hydrogen contains about 1 mole of hydrogen, but 1 gram of chlorine is only $0.028$ moles of chlorine. Since \ce{HCl} is made up of 1 hydrogen to 1 chlorine, and moles are the same thing as the number of molecules, 1 mole of hydrogen is not going to fully pair up with $0.028$ moles of chlorine. In fact, only $0.028$ moles of hydrogen will pair up with $0.028$ moles of chlorine. The rest of the $0.972$ moles of hydrogen will remain as hydrogen as the excess reactant/excess reagent (these terms can be used interchangeably) and chlorine would be the limiting reactant/limiting reagent (also can be used interchangeably). We'll explore limiting reactants in the next section, which is what happens when a mismatch of ratios occur.
+
+In the real world, we cannot directly measure how many molecules are in a certain solid or liquid. However, we can measure its mass. Using mass, we can use its molar mass to convert to moles.
+
+In order to see how much of a reactant becomes how much of a product, we will need to convert from mass reactant to moles reactant. From there, we can convert to moles of product using the stoichiometric ratio between reactant and product, and finally we'll convert to mass products.
+
+\textbf{Example}: You are working at an industrial ammonia-producing plant using the Haber process. You have 6.048 g of \ce{H2}.
+
+Haber process: \ce{N2 + 3H2 -> 2NH3}
+
+a) In order for all of the \ce{H2} to react, how many grams of \ce{N2} will you need?
+
+b) How many grams of \ce{NH3} will this produce?
+
+\textbf{Solution}:
+
+a) $6.048 g \ce{H2} \times \frac{1 mol \ce{H2}}{2.016 g \ce{H2}} \times \frac{1 mol \ce{N2}}{3 mol \ce{H2}} \times \frac{28.02 g \ce{N2}}{1 mol \ce{N2}} = 28.02 g \ce{N2}$
+
+\section{Limiting reactant}
+Usually when you're making PB\&J, one of the ingredients will run out first, right? Especially if you just bought a loaf of bread but you've almost used up the only jar of peanut butter. In the case of PB\&Js, the peanut butter would be the limiting reactant. In chemistry, this concept applies. Except, it's a bit hard to see what's the limiting reactant just based on mass of reactants.
+
+Instead, you'll have to convert mass reactants to moles reactants and then to moles products. Whichever stoichiometric ratio produces the least mass is the limiting reactant.
+
+For example, if you had 30 slices of bread but 10 servings of peanut butter and 15 servings of jelly, then assuming you had unlimited PB and J, 30 slices of bread could create 15 PB\&Js. If you had unlimited servings of bread and jelly, then you could create 10 PB\&Js. For jelly, 15 PB\&Js. The peanut butter is the limiting ingredient/reactant because it can produce the least PB\&Js out of all three ingredients/reactants.
+
+Therefore, the jelly and bread would be the excess reactant. To determine how much jelly and bread is left over after all 10 possible PB\&Js are made, subtract the initial amount of jelly/bread from the amount of jelly/bread that it takes to make the limiting reactant's possible PB\&Js (10 of them). You would have 5 jellies and 10 breads left over.
+
+\section{Connecting the dots of stoichiometry}
+This table is from Zumdahl \textit{Chemistry}, 9th edition. It is a good overview of what information you can get from the equation \ce{CH4(g) + 2O2(g) -> CO2(g) + 2H2O(g)}.\\
+
+\includegraphics[width=16cm]{assets/Zumdahl_Table3-2}
+
+As you can see, moles are simply a way to make counting atoms easier.
 
 \clearpage
 
